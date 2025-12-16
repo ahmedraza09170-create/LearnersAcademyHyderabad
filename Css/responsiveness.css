@@ -1,0 +1,132 @@
+/* ==========================================================
+// RESPONSIVE STYLESHEET (responsive.css)
+// SOLUTION: Removed custom 'display: none !important' on .navbar-collapse
+// ========================================================== */
+
+
+/* --- 1. TABLET/DESKTOP BREAKPOINT (Max-width 991.98px) --- */
+/* (Standard Bootstrap 'lg' breakpoint for navigation collapsing) */
+@media (max-width: 991.98px) {
+    
+    /* SOLUTION:
+       Yahan se 'display: none !important;' hata diya gaya hai.
+       Bootstrap khud-b-khud .collapse class se isse chupa dega,
+       aur .show class se dikhayega jab button dabega.
+    */
+    
+    .navbar-collapse {
+        /* Links container ko poori width di taaki mobile view mein theek se dikhe */
+        width: 100%; 
+        background-color: var(--text-light); /* Collapse hone par white background diya */
+        border-top: 1px solid #eee;
+    }
+    
+    /* Navbar links ko center aur space diya jab woh stack hon */
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    /* Apply Now Button ko full width aur center mein set kiya */
+    .navbar-collapse .btn-secondary-custom {
+        display: block;
+        width: 90%;
+        margin: 15px auto !important; /* Center aur upar neeche space */
+        text-align: center;
+    }
+}
+
+/* --- 2. MOBILE OPTIMIZATIONS BREAKPOINT (Max-width 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 2.1. GLOBAL LAYOUT AND TEXT ADJUSTMENTS */
+    
+    .section-padding {
+        padding: 40px 0; 
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        height: 350px; 
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    /* Content Stacking Fixes: Margin for Vertical Separation */
+    
+    .card-custom, .topper-box {
+        margin-bottom: 15px;
+    }
+    
+    /* Hero CTA Button Stacking Fix */
+    .hero-section .container .btn-primary-custom, 
+    .hero-section .container .btn-secondary-custom {
+        display: block; 
+        width: 100%;
+        margin-left: 0 !important; /* me-3 ko override kiya */
+        margin-right: 0 !important;
+        margin-bottom: 15px; 
+    }
+    
+    /* Footer Spacing Fix */
+    footer .col-md-3:not(:last-child) {
+        margin-bottom: 25px;
+    }
+
+    /* === 2.2. FLOATING BUTTONS & CHATBOX FIXES (Right Corner) === */
+
+    /* WhatsApp Button (Fixed on left) */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 20px; 
+        left: 20px; 
+    }
+    
+    /* Chat Button (Live Chat) */
+    .chat-btn {
+        width: auto;
+        height: auto; 
+        padding: 10px 15px; 
+        right: 20px; 
+        bottom: 20px; 
+        font-size: 0.9rem; 
+        border-radius: 50px; 
+    }
+
+    /* Chat Box Positioning and Size (Messenger-Style) */
+    .chat-box {
+        width: 300px; 
+        height: 400px; 
+        right: 20px; 
+        left: auto; 
+        transform: none; 
+        bottom: 80px; 
+        z-index: 9999;
+    }
+
+    .chat-body {
+        height: 330px; 
+    }
+    
+    /* === 2.3. GALLERY MODAL FIXES (For better viewing) === */
+    
+    /* Modal ko mobile screen par zyada jagah leni chahiye */
+    #galleryModal .modal-dialog {
+        margin: 10px;
+        max-width: none;
+    }
+
+    #galleryModal .modal-content {
+        height: 90vh;
+    }
+    
+    #galleryModal #modal-img {
+        max-height: 75vh;
+        width: auto;
+        max-width: 100%; 
+    }
+}
